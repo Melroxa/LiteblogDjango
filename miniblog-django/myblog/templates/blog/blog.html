@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Мини блог{% endblock %}
+
+{% block content %}
+<div class="main">
+    {% for post in post_list %}
+
+    <div class="container " style="font-family: 'Wix Madefor Text', sans-serif;">
+        <div class="row ">
+            <div class="alert alert-info">
+                <h4>Записи</h4>
+                <hr>
+                <div class="container px-4 ">
+                    <div class="row ">
+                        <div class="col">
+                            <div class="px-5">
+                                <h4>{{ post.title }}<a class="ms-3" href="{{ post.id }}"><i
+                                        class="fa-solid fa-circle-info" style="color: #000000;"></i></a></h4>
+                                <div class="d-flex ">
+                                    <div class="flex-shrink-0">
+                                        <img src="{{ post.img.url }}" class="me-5" alt="" width="200px">
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        {{ post.descriptions }}
+                                    </div>
+                                </div>
+                                <p class="text-end fw-bold"> Автор: {{ post.author }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
